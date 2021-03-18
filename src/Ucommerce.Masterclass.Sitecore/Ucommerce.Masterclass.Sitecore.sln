@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ucommerce.Masterclass.Sitecore", "Ucommerce.Masterclass.Sitecore\Ucommerce.Masterclass.Sitecore.csproj", "{4A822B3D-9FAC-422D-B727-2AD657FCE0F2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{F8C03C48-4312-4D5C-8E30-64246557BFFC}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\deploy\deploy.local.ps1 = ..\..\deploy\deploy.local.ps1
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
