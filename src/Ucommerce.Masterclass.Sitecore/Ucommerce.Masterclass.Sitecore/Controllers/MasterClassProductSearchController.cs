@@ -7,7 +7,7 @@ namespace Ucommerce.Masterclass.Models
     {
         public ActionResult ProductSearch()
         {
-            return View("/views/ProductSearch/index.cshtml");
+            return View("/views/MasterClassProductSearch/index.cshtml");
         }
     }
 }

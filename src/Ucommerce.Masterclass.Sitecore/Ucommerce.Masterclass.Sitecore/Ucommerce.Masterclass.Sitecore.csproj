@@ -250,13 +250,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Config\Include\Sites.masterclass.config" />
+    <Content Include="App_Config\Include\SpeakExclude\SpeakExclude.config" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\blank.cshtml" />
     <Content Include="Views\Shared\Email.cshtml" />
     <Content Include="Views\Shared\TwoCol.cshtml" />
     <Content Include="Views\Shared\_Email.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\MasterClassBasket\Index.cshtml" />
     <Content Include="Views\MasterClassBilling\Index.cshtml" />
     <Content Include="Views\MasterClassCategoryNavigation\Index.cshtml" />

@@ -19,7 +19,7 @@ namespace Ucommerce.Masterclass.Models
         {
             var model = new CategoryNavigationViewModel();
 
-            return View("/views/CategoryNavigation/index.cshtml", model);
+            return View("/views/MasterClassCategoryNavigation/index.cshtml", model);
         }
 
         private IList<CategoryViewModel> MapCategories(IList<Category> categories)

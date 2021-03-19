@@ -19,7 +19,7 @@ namespace Ucommerce.Masterclass.Models
             {
                 miniBasketViewModel.Empty = true;
             
-                return View("/views/Minibasket/index.cshtml", miniBasketViewModel);
+                return View("/views/MasterClassMinibasket/index.cshtml", miniBasketViewModel);
             }
             
             var basket = TransactionLibrary.GetBasket(false);
@@ -27,7 +27,7 @@ namespace Ucommerce.Masterclass.Models
             miniBasketViewModel.Empty = false;
             miniBasketViewModel.OrderTotal = new Money(basket.OrderTotal.GetValueOrDefault(0), basket.BillingCurrency.ISOCode).ToString();
             miniBasketViewModel.ItemsInCart = basket.OrderLines.Sum(x => x.Quantity);
-            return View("/views/Minibasket/index.cshtml", miniBasketViewModel);
+            return View("/views/MasterClassMinibasket/index.cshtml", miniBasketViewModel);
         }
     }
 }

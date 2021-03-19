@@ -1,5 +1,4 @@
 ﻿@using System.Web.Mvc.Html
-@using StackExchange.Profiling.Internal
 @inherits System.Web.Mvc.WebViewPage
 @{
     Layout = null;
@@ -27,8 +26,8 @@
           Home
         </strong>
       </a>
-      @{ Html.RenderAction("ProductSearch", "ProductSearch"); }
-      @{ Html.RenderAction("Render", "MiniBasket"); }
+      @{ Html.RenderAction("ProductSearch", "MasterClassProductSearch"); }
+      @{ Html.RenderAction("Render", "MasterClassMiniBasket"); }
     </div>
   </div>
 </header>
