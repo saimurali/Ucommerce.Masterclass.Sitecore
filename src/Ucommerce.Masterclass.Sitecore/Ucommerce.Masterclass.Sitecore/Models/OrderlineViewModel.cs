@@ -15,5 +15,6 @@ namespace Ucommerce.Masterclass.Models
         public string ProductName { get; set; }
         public string UnitPrice { get; set; }
         public string Tax { get; set; }
+        public decimal Discount { get; set; }
     }
 }
