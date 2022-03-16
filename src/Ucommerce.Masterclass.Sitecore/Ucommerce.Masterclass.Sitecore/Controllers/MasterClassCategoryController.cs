@@ -42,9 +42,9 @@ namespace Ucommerce.Masterclass.Models
         }
     }
 
-    public class CategoryController : Controller
+    public class MasterClassCategoryController : Controller
     {
-        public CategoryController()
+        public MasterClassCategoryController()
         {
             
         }
@@ -60,7 +60,7 @@ namespace Ucommerce.Masterclass.Models
         {
             var categoryModel = new CategoryViewModel();
 
-            return View("/views/category/index.cshtml", categoryModel);
+            return View(categoryModel);
         }
 
         private IList<FacetsViewModel> MapFacets(IList<Facet> facets)
