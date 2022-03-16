@@ -15,7 +15,16 @@ namespace Ucommerce.Masterclass.Controllers
         [System.Web.Mvc.HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var orderGuidParameterFromQueryString = System.Web.HttpContext.Current.Request.QueryString["OrderGuid"];
+            
+            var basket = TransactionLibrary.GetPurchaseOrder(Guid.Parse(orderGuidParameterFromQueryString));
+
+            PurchaseOrderViewModel purchaseOrderViewModel = MapPurchaseOrder(basket);
+
+            purchaseOrderViewModel.BillingAddress = MapAddress(basket.BillingAddress);
+            purchaseOrderViewModel.ShippingAddress = MapAddress(basket.Shipments.First().ShipmentAddress);
+            
+            return View(purchaseOrderViewModel);
         }
 
         private AddressViewModel MapAddress(OrderAddress address)
@@ -37,6 +46,38 @@ namespace Ucommerce.Masterclass.Controllers
             addressModel.CountryName = address.Country.Name;
 
             return addressModel;
+        }
+        
+        private PurchaseOrderViewModel MapPurchaseOrder(PurchaseOrder basket)
+        {
+            var model = new PurchaseOrderViewModel();
+
+            model.DiscountTotal =
+                new Money(basket.Discount.GetValueOrDefault(), basket.BillingCurrency.ISOCode)
+                    .ToString();
+            model.SubTotal =
+                new Money(basket.SubTotal.GetValueOrDefault(), basket.BillingCurrency.ISOCode)
+                    .ToString();
+            model.TaxTotal =
+                new Money(basket.TaxTotal.GetValueOrDefault(), basket.BillingCurrency.ISOCode)
+                    .ToString();
+            model.ShippingTotal =
+                new Money(basket.ShippingTotal.GetValueOrDefault(), basket.BillingCurrency.ISOCode).ToString();
+            model.PaymentTotal =
+                new Money(basket.PaymentTotal.GetValueOrDefault(), basket.BillingCurrency.ISOCode).ToString();
+            model.OrderTotal =
+                new Money(basket.OrderTotal.GetValueOrDefault(), basket.BillingCurrency.ISOCode).ToString();
+            
+            model.OrderLines = basket.OrderLines.Select(orderLine => new OrderlineViewModel()
+            {
+                Quantity = orderLine.Quantity,
+                ProductName = orderLine.ProductName,
+                Total = new Money(orderLine.Total.GetValueOrDefault(), basket.BillingCurrency.ISOCode).ToString(),
+                Discount = orderLine.Discount,
+                OrderLineId = orderLine.OrderLineId
+            }).ToList();
+
+            return model;
         }
     }
 }
