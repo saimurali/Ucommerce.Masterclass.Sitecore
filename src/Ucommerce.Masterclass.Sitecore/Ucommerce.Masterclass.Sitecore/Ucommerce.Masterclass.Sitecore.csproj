@@ -286,6 +286,7 @@
     <Content Include="Views\MasterClassProductSearch\Index.cshtml" />
     <Content Include="Views\MasterClassProduct\Index.cshtml" />
     <Content Include="Views\MasterClassShipping\Index.cshtml" />
+    <None Include="Sitecore Modules\shell\ucommerce\apps\xMasterClass\configuration.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -293,7 +294,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

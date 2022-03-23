@@ -1,5 +1,5 @@
 # Website root folder (website is deployed here)
-$website_root = "C:\inetpub\sc9\Website"
+$website_root = "C:\inetpub\sc92\website\sc92sc.dev.local"
 
 # Temporarily change to the correct folder containing script
 $scriptPath = (Get-Variable MyInvocation -Scope Script).Value.MyCommand.Path
@@ -20,6 +20,8 @@ $options = @("/E", "/S", "/xf", "*.cs", "/xf", "*.??proj", "/xf", "*.user", "/xf
 & robocopy "$src\Views" "$website_root\Views" *.* $options
 & robocopy "$src\Css" "$website_root\Css" *.* $options
 & robocopy "$src\App_Config" "$website_root\App_Config" *.* $options
+& robocopy "$src\Sitecore Modules" "$website_root\Sitecore Modules" *.* $options
+
 
 # Now back to original directory
 Pop-Location
